@@ -1,0 +1,51 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+
+# --- OS ---
+.DS_Store
+Thumbs.db
+
+# --- IDE ---
+.vscode/
+.idea/
+
+# --- Logs ---
+*.log
+
+# --- Data / Dumps (IMPORTANT) ---
+# Raw Wikipedia dumps
+*.xml
+*.xml.bz2
+*.xml.gz
+
+# Large processed data files
+*.csv
+*.tsv
+*.parquet
+*.jsonl
+*.ndjson
+
+# Graph / BFS outputs
+*.db
+*.sqlite
+*.sqlite3
+*.bin
+*.dat
+
+# Custom data directories
+data/
+
+
+# --- Temporary ---
+tmp/
+scratch/
+
+# --- Secrets ---
+.env
+.env.*
