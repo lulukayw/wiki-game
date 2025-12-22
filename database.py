@@ -6,7 +6,7 @@ import sys
 
 # --- CONFIGURATION ---
 DUMP_DIR = "./data/"  # Where your .sql.gz files are
-OUTPUT_DIR = "./neo4j_import/" # Where to save CSVs
+OUTPUT_DIR = "./import/" # Where to save CSVs
 PAGE_DUMP = "simplewiki-latest-page.sql.gz"
 LINKS_DUMP = "simplewiki-latest-pagelinks.sql.gz"
 LINKTARGET_DUMP = "simplewiki-latest-linktarget.sql.gz"
