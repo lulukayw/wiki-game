@@ -69,11 +69,22 @@ def shortest_path(graph, start_title, end_title, title_to_idx):
     return [graph[node_idx] for node_idx in path_indices]
 
 
-g, title_to_idx = load_wiki_graph(PAGES_PATH, LINKS_PATH)
+if __name__ == "__main__":
+    print("Loading graph...")
+    g, title_to_idx = load_wiki_graph(PAGES_PATH, LINKS_PATH)
+    while (True):
+        print("Enter start and end article titles, separated by a space and spaces replaced with underscores: ")
+        # path = shortest_path(g, "Crater", "Isaac_Newton", title_to_idx)
+        user_input = input().strip()
+        start_title, end_title = user_input.split(" ")
+        path = shortest_path(g, start_title, end_title, title_to_idx)
 
-path = shortest_path(g, "Crater", "Isaac_Newton", title_to_idx)
-
-if path:
-    print(" -> ".join(path))
-else:
-    print("No path found!")
+        if path:
+            print(" -> ".join(path))
+        else:
+            print("No path found!")
+        
+        print("Continue? (y/n): ")
+        continue_input = input().strip().lower()
+        if continue_input != 'y':
+            break
