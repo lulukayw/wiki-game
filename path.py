@@ -53,7 +53,6 @@ def shortest_path(graph, start_title, end_title, title_to_idx):
     end_idx = title_to_idx.get(end_title)
     
     if start_idx is None or end_idx is None:
-        print(start_idx, " ", end_idx)
         print("One or both titles not found in the graph.")
         return None
     
@@ -66,17 +65,22 @@ def shortest_path(graph, start_title, end_title, title_to_idx):
     path_indices = paths_dict[end_idx]
     
     # Convert indices back to titles
-    return [graph[node_idx] for node_idx in path_indices]
+    return [graph[node_idx] for node_idx in path_indices]\
+    
+def process_input(user_input):
+    start_title, end_title = user_input.split(",")
+    start_title = start_title.title().replace(" ", "_")
+    end_title = end_title.title().replace(" ", "_")
+    return start_title, end_title
 
 
 if __name__ == "__main__":
     print("Loading graph...")
     g, title_to_idx = load_wiki_graph(PAGES_PATH, LINKS_PATH)
     while (True):
-        print("Enter start and end article titles, separated by a space and spaces replaced with underscores: ")
-        # path = shortest_path(g, "Crater", "Isaac_Newton", title_to_idx)
-        user_input = input().strip()
-        start_title, end_title = user_input.split(" ")
+        print("Enter start and end article titles, separated by a comma (no space): ")
+        user_input = input().strip().lower()
+        start_title, end_title = process_input(user_input)
         path = shortest_path(g, start_title, end_title, title_to_idx)
 
         if path:
